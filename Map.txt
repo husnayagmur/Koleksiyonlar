@@ -1,0 +1,31 @@
+ava'da SortedMap ve NavigableMap, her ikisi de Map arayüzünü genişleten arayüzlerdir, ancak ek işlevsellikler sunarlar. Kısaca farklarına bakalım:
+
+1. SortedMap
+Arayüz: SortedMap, anahtarların (keys) sıralı olduğu bir harita yapısıdır. Anahtarlar, doğal sıralama (örneğin sayılar için küçükten büyüğe, stringler için alfabetik sıraya göre) veya belirtilen bir Comparator ile sıralanır.
+Özellikler:
+Anahtarlar sıralı tutulur.
+Duplicates (tekrar eden anahtarlar) olmaz.
+Sıralı olduğundan dolayı ilk anahtar ve son anahtar gibi bilgilere kolayca ulaşılabilir.
+Metodlar:
+firstKey(): En küçük anahtarı döner.
+lastKey(): En büyük anahtarı döner.
+headMap(toKey): Verilen anahtara kadar olan anahtar-değer çiftlerini döner.
+tailMap(fromKey): Verilen anahtardan sonraki tüm anahtar-değer çiftlerini döner.
+subMap(fromKey, toKey): Verilen aralıktaki anahtar-değer çiftlerini döner.
+
+2. NavigableMap
+Arayüz: NavigableMap, SortedMap arayüzünü genişletir ve elemanlar arasında navigasyon (ilerleme ve gerileme) yapmaya olanak tanır. Yani, anahtarlar arasında daha hassas gezinme işlevleri sunar.
+Özellikler:
+SortedMap'in tüm özelliklerini içerir.
+Ek olarak, anahtarlar üzerinde ileri geri gezinmeyi sağlayan metodlar sunar (örneğin, bir anahtardan küçük veya büyük olanları bulmak).
+Metodlar:
+lowerKey(e): Verilen anahtardan küçük olan en büyük anahtarı döner.
+higherKey(e): Verilen anahtardan büyük olan en küçük anahtarı döner.
+floorKey(e): Verilen anahtar veya ondan küçük olan en büyük anahtarı döner.
+ceilingKey(e): Verilen anahtar veya ondan büyük olan en küçük anahtarı döner.
+pollFirstEntry(): İlk (en küçük) anahtar-değer çiftini döner ve haritadan çıkarır.
+pollLastEntry(): Son (en büyük) anahtar-değer çiftini döner ve haritadan çıkarır.
+
+Özet:
+SortedMap: Anahtarları sıralı tutan bir haritadır. Doğal sıralama veya Comparator kullanarak anahtarlar sıralanır.
+NavigableMap: SortedMap'in tüm özelliklerini içerir ve ek olarak, anahtarlar arasında ileri-geri gezinme işlevleri sunar (lower, higher gibi metodlar).

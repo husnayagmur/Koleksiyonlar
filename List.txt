@@ -1,0 +1,35 @@
+Java'da ArrayList, Vector, LinkedList, ve Stack, tümü List arayüzünü uygulayan veri yapılarıdır, ancak çalışma biçimleri, performansları ve kullanım senaryoları açısından farklılık gösterirler. Kısaca her birini inceleyelim:
+
+1. ArrayList
+Sınıf: ArrayList, dinamik bir dizi (array) gibi davranan bir veri yapısıdır. Elemanlar dizilerde olduğu gibi index ile erişilir.
+Performans: Elemanlara erişim O(1) zaman karmaşıklığına sahiptir. Ancak eleman ekleme, silme (özellikle dizinin ortasında) yavaş olabilir (O(n)).
+Özellikler:
+Dizi tabanlı: Arka planda dinamik bir dizi kullanır.
+Hızlı erişim: Elemanlara index ile hızlıca erişilebilir.
+Ekleme ve silme işlemleri (özellikle ortada) nispeten yavaştır.
+Senkronize değildir: Çoklu iş parçacığı ortamında güvenli değildir.
+
+2. Vector
+Sınıf: Vector, ArrayList'e benzer bir veri yapısıdır, ancak senkronizedir. Yani, çoklu iş parçacığı ortamında güvenlidir.
+Performans: Elemanlara erişim hızlıdır (O(1)), ancak senkronizasyon işlemleri ek performans maliyeti getirir. Bu nedenle genellikle ArrayList yerine tercih edilmez.
+Özellikler:
+Dizi tabanlı: Arka planda dinamik bir dizi kullanır.
+Senkronizedir: Çoklu iş parçacığı ortamında güvenlidir.
+Ekleme ve silme işlemleri yavaş olabilir.
+
+3.LinkedList
+Sınıf: LinkedList, çift yönlü bağlantılı liste (doubly-linked list) tabanlı bir veri yapısıdır. Hem List hem de Deque (çift uçlu sıra) arayüzlerini uygular, yani hem liste hem de kuyruk gibi davranabilir.
+Performans: Elemanlara erişim O(n) zaman alır (çünkü listeyi baştan sona gezmek gerekir), ancak ekleme ve silme işlemleri (özellikle başta veya sonda) O(1) zaman karmaşıklığına sahiptir.
+Özellikler:
+Bağlantılı liste tabanlı: Her eleman bir önceki ve bir sonraki elemana bağlanır.
+Ekleme ve silme işlemleri hızlıdır (özellikle baş ve sondan).
+Hafıza kullanımı ArrayList'ten fazladır çünkü her eleman bir referans içerir.
+Liste ve kuyruk işlemleri için kullanılabilir.
+
+4. Stack
+Sınıf: Stack, LIFO (Last In First Out) prensibine dayalı bir veri yapısıdır. Vector sınıfını genişletir, yani senkronizedir.
+Performans: Stack'te eleman ekleme ve çıkarma işlemleri hızlıdır (O(1)). Ancak Vector tabanlı olduğu için senkronizasyon maliyeti vardır.
+Özellikler:
+LIFO (Son giren ilk çıkar): Son eklenen eleman ilk çıkar.
+Senkronizedir: Çoklu iş parçacığı ortamında güvenlidir.
+Eklemeler ve silmeler push() ve pop() metodları ile yapılır.

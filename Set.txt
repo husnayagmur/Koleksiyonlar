@@ -1,0 +1,70 @@
+1.SortedSet Arayüzü
+Arayüz: SortedSet, bir set'in (kümenin) sıralı olmasını sağlayan bir arayüzdür. Bu, koleksiyonun elemanlarının doğal sıralama düzenine (örneğin sayılar için küçükten büyüğe, stringler için alfabetik sıraya) göre sıralanmasını sağlar.
+Özellikler:
+Aynı eleman iki kez eklenemez (Set'in temel özelliği).
+Elemanlar sıralı tutulur.
+SortedSet arayüzünü doğrudan kullanamazsınız. Bunun için bir sınıf (TreeSet) kullanmanız gerekir.
+Metodlar:
+first(): En küçük elemanı döner.
+last(): En büyük elemanı döner.
+headSet(toElement): Belirtilen elemana kadar olan elemanları döner.
+tailSet(fromElement): Belirtilen elemandan sonrasını döner.
+subSet(fromElement, toElement): Belirli bir aralıktaki elemanları döner.
+
+2. NavigableSet Arayüzü
+Arayüz: NavigableSet, SortedSet arayüzünü genişleten bir arayüzdür. Elemanlar üzerinde navigasyon (ileri geri gezinme) yapmayı sağlar.
+Özellikler:
+SortedSet'in tüm özelliklerini içerir.
+Ek olarak, elemanlar arasında daha hassas gezinme işlevleri sağlar (örneğin, bir elemandan küçük veya büyük olanları bulmak).
+Metodlar:
+lower(e): Verilen elemana göre daha küçük olan en büyük elemanı döner.
+higher(e): Verilen elemana göre daha büyük olan en küçük elemanı döner.
+floor(e): Verilen elemana eşit veya ondan küçük olan en büyük elemanı döner.
+ceiling(e): Verilen elemana eşit veya ondan büyük olan en küçük elemanı döner.
+pollFirst(): İlk (en küçük) elemanı çıkarır ve döner.
+pollLast(): Son (en büyük) elemanı çıkarır ve döner.
+
+Java'daki TreeSet, HashSet, LinkedHashSet, ve EnumSet sınıfları, hepsi Set arayüzünü uygulayan farklı veri yapılarıdır. Bu sınıflar arasında sıralama, hız ve bellek kullanımı gibi farklar bulunur. Kısaca her birini inceleyelim:
+
+1. TreeSet
+Sınıf: TreeSet, elemanları doğal sıralama veya belirttiğiniz bir Comparator ile sıralı olarak tutar.
+Sıralama: Elemanlar sıralı tutulur. Küçükten büyüğe veya alfabetik sıraya göre sıralama yapılır.
+Performans: Ekleme, silme, ve arama işlemleri O(log n) zaman karmaşıklığına sahiptir, çünkü TreeSet kırmızı-siyah ağaç veri yapısını kullanır.
+Özellikler:
+Sıralı Set.
+Duplicates (tekrar eden elemanlar) olmaz.
+NavigableSet ve SortedSet arayüzlerini uygular.
+
+2. HashSet
+Sınıf: HashSet, elemanları sırasız olarak saklayan bir veri yapısıdır.
+Sıralama: Sıralama garantisi yoktur. Elemanlar hash kodlarına göre saklanır.
+Performans: Ekleme, silme ve arama işlemleri O(1) zaman karmaşıklığına sahiptir, yani oldukça hızlıdır.
+Özellikler:
+Sıralama yoktur, elemanlar hash tabanlı tutulur.
+Duplicates olmaz.
+null değer kabul edebilir.
+
+3.LinkedHashSet
+Sınıf: LinkedHashSet, elemanları ekleme sırasına göre saklayan bir veri yapısıdır.
+Sıralama: Ekleme sırasını korur. Elemanlar eklenme sırasına göre sıralanır.
+Performans: Ekleme, silme ve arama işlemleri O(1) zaman karmaşıklığına sahiptir (diğer HashSet gibi), ancak ek sıralama bilgisi tuttuğu için biraz daha fazla bellek kullanır.
+Özellikler:
+Ekleme sırasını korur.
+Duplicates olmaz.
+Hash tabanlı olduğu için hızlıdır.
+
+4.EnumSet
+Sınıf: EnumSet, sadece enum türleri için özel olarak tasarlanmış bir Set'tir. Bellek kullanımı ve performans açısından optimize edilmiştir.
+Sıralama: Enum sabitlerinin sıralaması enum'ın tanımlandığı sıraya göre yapılır.
+Performans: Çok hızlıdır ve genellikle sabit sayıdaki enum değerleri için optimize edilmiştir.
+Özellikler:
+Enum veri türleri ile kullanılır.
+Bellek verimliliği yüksek.
+Ekleme sırası korunur (Enum sırası).
+
+Özet:
+TreeSet: Elemanları sıralı tutar. Ekleme, silme ve arama O(log n) karmaşıklığına sahiptir.
+HashSet: Elemanları sırasız tutar, en hızlı erişimi sağlar (O(1)).
+LinkedHashSet: Elemanları ekleme sırasına göre tutar, hızlıdır ama sıralama bilgisi tutar.
+EnumSet: Enum tipleri için optimize edilmiştir, hızlı ve bellek dostudur.
+Her biri belirli bir kullanım senaryosu için uygundur; örneğin, sıralı bir yapı isteniyorsa TreeSet, hızlı erişim için HashSet, ekleme sırasını korumak için LinkedHashSet ve sadece enum'larla çalışmak için EnumSet tercih edilebilir.

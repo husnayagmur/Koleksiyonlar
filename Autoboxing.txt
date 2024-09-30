@@ -1,0 +1,28 @@
+Evet, int ve Integer birbirine çok benzer, ancak aralarında önemli farklar vardır. Java'da int temel veri türü (primitive type) iken, Integer bir sınıftır (wrapper class). Her ikisi de tamsayıları temsil eder, ancak kullanım yerleri ve işlevleri farklıdır.
+
+Farklar:
+Veri Türü:
+
+int: Primitive veri türüdür. Java'da ilkel (temel) veri türlerinden biridir ve yalnızca ham sayısal veriyi saklar.
+Integer: Bir nesnedir (sınıf), java.lang.Integer sınıfının bir örneğidir ve int türündeki sayısal veriyi sarmalar. int'i nesne olarak temsil eder.
+Bellek Yönetimi:
+
+int: Değişkenler stack bellekte saklanır. Hafıza açısından çok verimlidir ve daha hızlı çalışır.
+Integer: Nesneler heap bellekte saklanır ve Integer nesnesi ek hafıza yüküne sahiptir. Nesnelerin yönetimi daha fazla bellek ve zaman harcar.
+Nesne Yöntemleri:
+
+int: Sadece ham veri olarak kullanılır, herhangi bir metoda sahip değildir.
+Integer: Nesne olduğu için toString(), equals(), hashCode(), gibi yöntemlere sahiptir. Ayrıca bazı faydalı statik metodları vardır (örneğin Integer.parseInt()).
+Null Değer Atama:
+
+int: Primitive türler null değeri alamaz. Yani int değişkenine null atanamaz.
+Integer: Nesne olduğu için null değer alabilir. Örneğin Integer x = null; şeklinde kullanılabilir. Bu, özellikle veritabanı işlemlerinde veya koleksiyonlarla çalışırken faydalı olabilir.
+Ne İşe Yarıyor?
+Koleksiyonlar ve Nesneler ile Çalışma: Java'nın koleksiyon sınıfları (List, Set, vb.) ve diğer bazı yapılar sadece nesnelerle çalışır, primitive türlerle değil. Bu yüzden, int gibi primitive türleri Integer gibi sarmalayıcı sınıflara dönüştürmek gerekir. Autoboxing sayesinde bu dönüşüm otomatik yapılır.
+
+Neden Hem int Hem de Integer Var?
+Performans: int veri türü, ham veri olduğu için daha hızlı ve daha az bellek kullanır. Dolayısıyla, performansın kritik olduğu yerlerde int kullanılır.
+Esneklik ve Nesne Yönetimi: Integer nesnesi, nesne tabanlı yapılarla uyum sağlamak için kullanılır. Eğer bir nesneye ihtiyacınız varsa, Integer kullanırsınız. Örneğin, koleksiyonlar, generic sınıflar ve null değerlerle çalışırken Integer kullanılır.
+Sonuç:
+Eğer sadece ham sayısal işlemler yapıyorsanız ve performans önemliyse int kullanın.
+Eğer nesne tabanlı yapılarla (koleksiyonlar gibi) çalışıyorsanız veya null değeri kullanmanız gerekiyorsa Integer kullanın.
